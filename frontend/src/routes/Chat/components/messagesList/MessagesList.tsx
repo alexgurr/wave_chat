@@ -2,7 +2,7 @@ import { RefObject } from "react";
 import { Typography, Box } from "@material-ui/core";
 
 import { IMessage } from "../../models";
-import useCustomStyles from "./styles";
+import "./_messages-list.scss";
 
 interface IMessageListProps {
   messages: IMessage[];
@@ -10,11 +10,10 @@ interface IMessageListProps {
 }
 
 const MessagesList = ({ messages, listScrollRef }: IMessageListProps) => {
-  const classes = useCustomStyles();
   return (
-    <Box className={classes.listContainer}>
+    <Box className="list-container">
       {messages.map((item, i) => (
-        <Typography className={classes.item} key={i}>
+        <Typography className="list-container__item" key={i}>
           {item.from}: {item.text}
         </Typography>
       ))}

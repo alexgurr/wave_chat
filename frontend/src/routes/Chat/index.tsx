@@ -2,12 +2,11 @@ import { useState, useEffect, useRef, RefObject } from "react";
 import { Container, CssBaseline, Box } from "@material-ui/core";
 import { useSocketConnection } from "./hooks";
 import { MessageInput, MessagesList } from "./components";
-import useCustomStyles from "./styles";
+import "./_index.scss";
 
 import { IMessage } from "./models";
 
 const Chat = () => {
-  const classes = useCustomStyles();
   const [messages, setMessages] = useState<IMessage[]>([]);
   const listScrollRef = useRef(null);
 
@@ -27,9 +26,9 @@ const Chat = () => {
   }, [messages]);
 
   return (
-    <Container component="main" maxWidth="md" className={classes.container}>
+    <Container component="main" maxWidth="md" className="chat-layout">
       <CssBaseline />
-      <Box className={classes.body}>
+      <Box className="chat-layout__body">
         <MessagesList messages={messages} listScrollRef={listScrollRef} />
         <MessageInput socket={socket} />
       </Box>

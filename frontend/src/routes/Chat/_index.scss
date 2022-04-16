@@ -1,0 +1,11 @@
+.chat-layout {
+  overflow: hidden;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px #dadada;
+    background-color: #fff;
+  }
+}

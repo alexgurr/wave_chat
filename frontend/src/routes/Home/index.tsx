@@ -12,10 +12,9 @@ import {
 } from "@material-ui/core";
 import ForumIcon from "@material-ui/icons/Forum";
 
-import useCustomStyles from "./styles";
+import "./_index.scss";
 
 const Home = () => {
-  const classes = useCustomStyles();
   const navigate = useNavigate();
   const [name, setName] = useState("");
 
@@ -31,8 +30,8 @@ const Home = () => {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <Box className={classes.body}>
-        <ForumIcon className={classes.icon} />
+      <Box className="home-layout">
+        <ForumIcon className="home-layout__icon" />
         <Typography variant="h3">Wave Chat</Typography>
         <TextField
           variant="outlined"
@@ -51,7 +50,8 @@ const Home = () => {
           fullWidth
           variant="contained"
           color="primary"
-          className={classes.button}
+          id="button"
+          className="home-layout__button"
           onClick={handleSubmit}
         >
           Submit

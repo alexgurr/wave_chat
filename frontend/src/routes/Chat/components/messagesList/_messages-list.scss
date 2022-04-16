@@ -1,0 +1,9 @@
+.list-container {
+  height: 500px;
+  padding: 10px;
+  overflow-y: auto;
+
+  &__item {
+    white-space: pre-wrap;
+  }
+}

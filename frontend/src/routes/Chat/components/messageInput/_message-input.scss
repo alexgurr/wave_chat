@@ -1,0 +1,17 @@
+.input-container {
+  display: flex;
+  padding: 0 10px;
+
+  &__text-input {
+    align-self: center;
+  }
+
+  &__button {
+    margin: 24px 0 16px;
+    display: block;
+    color: white;
+    margin-left: 10px;
+    height: fit-content;
+    align-self: center;
+  }
+}

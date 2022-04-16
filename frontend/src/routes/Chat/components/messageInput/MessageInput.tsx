@@ -2,14 +2,13 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { Button, Box, TextField } from "@material-ui/core";
 import { Socket } from "socket.io-client";
-import useCustomStyles from "./styles";
+import "./_message-input.scss";
 
 interface IMessageInputProps {
   socket: null | Socket;
 }
 
 const MessageInput = ({ socket }: IMessageInputProps) => {
-  const classes = useCustomStyles();
   const [message, setMessage] = useState("");
 
   const handleSubmit = () => {
@@ -25,9 +24,9 @@ const MessageInput = ({ socket }: IMessageInputProps) => {
   };
 
   return (
-    <Box className={classes.inputContainer}>
+    <Box className="input-container">
       <TextField
-        className={classes.textInput}
+        className="input-container__text-input"
         multiline
         variant="outlined"
         margin="normal"
@@ -44,7 +43,7 @@ const MessageInput = ({ socket }: IMessageInputProps) => {
       <Button
         variant="contained"
         color="primary"
-        className={classes.button}
+        className="input-container__button"
         onClick={handleSubmit}
       >
         Send
