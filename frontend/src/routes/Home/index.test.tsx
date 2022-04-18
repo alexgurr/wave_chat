@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import Home from "./index";
 
@@ -10,10 +11,28 @@ jest.mock("react-router-dom", () => ({
 }));
 
 describe("Home Page", () => {
-  it("should render home page", async () => {
+  it("should render Wave Chat label", () => {
     render(<Home />);
 
     const text = screen.getByText("Wave Chat");
     expect(text).toBeInTheDocument();
+  });
+
+  it("should submit a chat name", () => {
+    render(<Home />);
+
+    userEvent.type(
+      screen.getByRole("textbox", { name: /chat name/i }),
+      "Steven"
+    );
+
+    userEvent.click(screen.getByRole("button", { name: /submit/i }));
+
+    expect(mockedUsedNavigate).toHaveBeenCalledWith(
+      expect.stringContaining("/chat/"),
+      {
+        state: { name: "Steven" }
+      }
+    );
   });
 });
